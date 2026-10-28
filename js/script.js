@@ -4,24 +4,26 @@
    ========================================================== */
 const CONFIG = {
   // WhatsApp number in international format, digits only (no "+", spaces or dashes).
-  // Taken from the footer phone number in the design – CONFIRM it is the ordering line.
   whatsappNumber: "6282245922263",
-  whatsappMessage: "Halo REMPAH, saya ingin memesan jamu.",
+  orderMessage: "Hai Rempah! Aku mau pesan jamu",
+  contactMessage: "Hai Rempah! Aku mau bilang sesuatu nih",
   email: "officialrempahid@gmail.com",
   emailSubject: "Pesan untuk REMPAH",
-  // Social media – intentionally left empty. Fill in your own.
-  // Handle = text shown next to the icon (e.g. "@yourname"); Url = full profile link.
-  instagramHandle: "",
-  instagramUrl: "",
-  tiktokHandle: "",
-  tiktokUrl: "",
+  // Handle = text shown next to the icon; Url = full profile link.
+  instagramHandle: "@pilih.rempah",
+  instagramUrl: "https://www.instagram.com/pilih.rempah?vrfl=ajczd3Z2dWhtcmJ5&utm_source=qr",
+  tiktokHandle: "@pilih.rempah",
+  tiktokUrl: "https://www.tiktok.com/@pilih.rempah?_r=1&_t=ZS-9AtciF36L6W",
 };
 
 (function () {
   "use strict";
 
+  const whatsappUrl = (message) =>
+    `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
   const links = {
-    whatsapp: `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(CONFIG.whatsappMessage)}`,
+    "whatsapp-order": whatsappUrl(CONFIG.orderMessage),
+    "whatsapp-contact": whatsappUrl(CONFIG.contactMessage),
     email: `mailto:${CONFIG.email}?subject=${encodeURIComponent(CONFIG.emailSubject)}`,
     instagram: CONFIG.instagramUrl,
     tiktok: CONFIG.tiktokUrl,
