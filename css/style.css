@@ -49,19 +49,13 @@ a:focus-visible, button:focus-visible {
 .site-nav .navbar-brand { padding: 0; margin: 0; }
 .site-nav .nav-link {
   font-size: 27px; font-weight: 300; color: var(--c-teal);
-  padding: 0 !important; margin: 0 20px 0 20px;
-  line-height: 1.5;
+  display: inline-flex; align-items: center;
+  min-height: 67px; padding: 0 20px !important; margin: 0 20px;
+  border-radius: 40px; line-height: 1.5;
+  transition: background-color .2s ease;
 }
 .site-nav .nav-item:last-child .nav-link { margin-right: 0; }
-.site-nav .nav-link:hover { text-decoration: underline; text-underline-offset: 6px; }
-.btn-pill-nav {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 208px; height: 67px; border-radius: 40px;
-  background: var(--c-yellow); color: var(--c-teal);
-  font-size: 27px; font-weight: 600;
-  transition: transform .15s ease, background-color .15s ease;
-}
-.btn-pill-nav:hover { background: #ffd953; transform: translateY(-1px); color: var(--c-teal); }
+.site-nav .nav-link:hover { background: var(--c-yellow); }
 .navbar-toggler { border-color: var(--c-teal); }
 .navbar-toggler:focus { box-shadow: 0 0 0 3px var(--c-teal-dark); }
 
@@ -72,8 +66,7 @@ a:focus-visible, button:focus-visible {
   .site-nav__logo { width: 112px; }
   .navbar-collapse { padding: 12px 0 16px; }
   .site-nav .navbar-nav { gap: 10px; align-items: flex-start !important; }
-  .site-nav .nav-link { margin: 0; font-size: 22px; }
-  .btn-pill-nav { width: 170px; height: 54px; font-size: 22px; }
+  .site-nav .nav-link { min-height: 54px; margin: 0; font-size: 22px; }
 }
 
 /* ---------- Scene containers ---------- */
@@ -125,7 +118,7 @@ a:focus-visible, button:focus-visible {
   border-radius: 999px; font-weight: 700; white-space: nowrap;
   padding: 22px 38px; font-size: 26px;
 }
-.btn-3d:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.btn-3d:hover { transform: translateY(-2px); }
 .btn-3d:active { transform: translateY(2px); }
 .btn-3d--yellow { background: var(--c-yellow); }
 .btn-3d--yellow > span {
@@ -143,6 +136,7 @@ a:focus-visible, button:focus-visible {
 .contact { padding: 56px 20px 0; text-align: center; display: flex; flex-direction: column; align-items: center; }
 .contact__person { order: 5; }
 .contact__title { font-size: clamp(24px, 7vw, 40px); font-weight: 700; line-height: 1.4; margin: 0 0 28px; }
+.contact__message { max-width: 720px; margin: 0 0 28px; font-size: 18px; line-height: 1.6; }
 .contact__social { margin: 28px 0 24px; text-align: left; display: inline-block; font-style: italic; }
 .contact__follow { font-size: 20px; margin: 0 0 10px; }
 .social-link { display: flex; align-items: center; gap: 8px; font-size: 18px; margin-bottom: 10px; }
@@ -187,6 +181,7 @@ a:focus-visible, button:focus-visible {
   .contact { height: calc(915 * var(--u)); padding: 0; text-align: left; }
   .contact__person { position: absolute; left: 0; top: calc(215 * var(--u)); width: calc(437 * var(--u)); margin: 0; }
   .contact__title { position: absolute; left: calc(516 * var(--u)); top: calc(86 * var(--u)); margin: 0; font-size: calc(62.2 * var(--u)); line-height: calc(90 * var(--u)); white-space: nowrap; }
+  .contact__message { position: absolute; left: calc(516 * var(--u)); top: calc(300 * var(--u)); width: calc(800 * var(--u)); max-width: none; margin: 0; font-size: calc(25 * var(--u)); line-height: calc(38 * var(--u)); }
   .contact .btn-3d { position: absolute; left: calc(514 * var(--u)); top: calc(545 * var(--u)); width: calc(344 * var(--u)); height: calc(109 * var(--u)); padding: 0; }
   .contact .btn-3d > span { position: absolute; left: calc(16 * var(--u)); top: calc(9 * var(--u)); width: calc(312 * var(--u)); height: calc(82 * var(--u)); padding: 0; font-size: calc(31.8 * var(--u)); box-shadow: 0 calc(7 * var(--u)) 0 var(--c-sage-shadow), inset 0 2px 0 rgba(255,255,255,.22); }
   .contact__social { position: absolute; left: calc(538 * var(--u)); top: calc(731 * var(--u)); margin: 0; }
@@ -206,10 +201,9 @@ a:focus-visible, button:focus-visible {
 @media (min-width: 992px) and (max-width: 1279.98px) {
   .site-nav__inner { padding: 0 24px; }
   .site-nav .nav-link { font-size: 22px; margin: 0 12px; }
-  .btn-pill-nav { width: 176px; height: 58px; font-size: 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .btn-3d, .btn-pill-nav { transition: none; }
+  .btn-3d, .site-nav .nav-link { transition: none; }
 }
